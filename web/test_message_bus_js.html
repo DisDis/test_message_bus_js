@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test_Message_Bus_Js</title>
+    <link rel="stylesheet" href="test_message_bus_js.css">
+  </head>
+  <body>
+    <h1>Test_Message_Bus_Js</h1>
+
+    <p>Hello world from Dart!</p>
+
+    <div id="sample_container_id">
+      <p id="sample_text_id">Click me!</p>
+    </div>
+
+    <script type="application/javascript" src="test_message_bus_js.dart.js"></script>
+  </body>
+  <script type="application/javascript">
+      setTimeout(function (_){
+          console.log('[JS] ',dartObj1);
+          console.log('[JS] dartObj1.fieldInt1',dartObj1.fieldInt1);
+          console.log('[JS] dartObj1.fieldStr1',dartObj1.fieldStr1);
+          console.log('[JS] dartObj1.subObjTestMessage1',dartObj1.subObjTestMessage1);
+
+        var obj = {
+            fieldInt1: 5,
+            fieldStr1: 'js text',
+            subObjTestMessage1:
+              {
+                  fieldInt2: 6,
+                  fieldArr1Str: ["js1","js2"]
+              }
+            };
+        dartFunc1(obj);
+        console.log('[JS] call(dartObj1)');
+        dartFunc1(dartObj1);
+    },2000);
+  </script>
+</html>

@@ -1,0 +1,14 @@
+.buildlog
+.DS_Store
+.idea
+.pub/
+.project
+.settings/
+build/
+packages
+.packages
+pubspec.lock
+.atom
+test/aggregated_vm_test.dart
+coverage
+.dart_tool
