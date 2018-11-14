@@ -8,6 +8,9 @@ export 'package:test_message_bus_js/src/test_message_interface.dart';
 @JS('JSON.stringify')
 external String stringify(dynamic value);
 
+@JS('JSON.parse')
+external dynamic parse(String value);
+
 @JS()
 @anonymous
 class TestMessage1JS implements TestMessage1{
