@@ -29,7 +29,8 @@ void main() {
   TestMessage1 tm2Js = parse('{"fieldInt1":3,"fieldStr1":"json text","subObjTestMessage1":{"fieldInt2":4,"fieldArr1Str":["1json","2json"]}}');
   print('MARKER5 - call(tm2Js)');
   _jsCallback(tm2Js);
-  print('MARKER6 - end call');
+  print('MARKER6 - end call, set "dartObj2"');
+  setProperty(window,'dartObj2',tm2Js);
 }
 
 _jsCallback(TestMessage1 msg){
