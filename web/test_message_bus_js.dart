@@ -31,6 +31,10 @@ void main() {
   _jsCallback(tm2Js);
   print('MARKER6 - end call, set "dartObj2"');
   setProperty(window,'dartObj2',tm2Js);
+  print('MARKER7');
+  _testObject(new DateTime.now().millisecondsSinceEpoch > 100 ? tm2Js : {});
+  print('MARKER8 - empty object');
+  _testObject({});
 }
 
 _jsCallback(TestMessage1 msg){
@@ -43,8 +47,14 @@ _jsCallback(TestMessage1 msg){
   }
   print('[Dart] "msg" is TestMessage1: ${msg is TestMessage1}');
   Object o = msg;
-  print('[Dart] ("msg" -> Object) is TestMessage1: ${o is TestMessage1}');
-  print('[Dart] (("msg" -> Object) as TestMessage1).fieldStr1: ${(o as TestMessage1).fieldStr1}');
+  _testObject(o);
   // Uncaught RangeError: Maximum call stack size exceeded
   //print('[Dart] subObjTestMessage1: ${msg.subObjTestMessage1 != null? msg.subObjTestMessage1: null}');
+}
+
+_testObject(Object o){
+  print('[Dart] ("msg" -> Object) is TestMessage1: ${o is TestMessage1}');
+  if (o is TestMessage1) {
+    print('[Dart] (("msg" -> Object) as TestMessage1).fieldStr1: ${(o as TestMessage1).fieldStr1}');
+  }
 }
