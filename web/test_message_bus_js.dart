@@ -41,6 +41,10 @@ _jsCallback(TestMessage1 msg){
     print('[Dart] subObjTestMessage1.fieldArr1Str.length: ${msg.subObjTestMessage1.fieldArr1Str.length}');
     print('[Dart] subObjTestMessage1.fieldArr1Str: ${msg.subObjTestMessage1.fieldArr1Str}');
   }
+  print('[Dart] "msg" is TestMessage1: ${msg is TestMessage1}');
+  Object o = msg;
+  print('[Dart] ("msg" -> Object) is TestMessage1: ${o is TestMessage1}');
+  print('[Dart] (("msg" -> Object) as TestMessage1).fieldStr1: ${(o as TestMessage1).fieldStr1}');
   // Uncaught RangeError: Maximum call stack size exceeded
   //print('[Dart] subObjTestMessage1: ${msg.subObjTestMessage1 != null? msg.subObjTestMessage1: null}');
 }
