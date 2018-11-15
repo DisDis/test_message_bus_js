@@ -37,7 +37,7 @@ void main() {
   _testObject({});
   print('MARKER9 - parse json string -> tm3Js(SubObjTestMessage1)');
   SubObjTestMessage1 tm3Js = parse('{"fieldInt2":8,"fieldArr1Str":["3json","4json"]}');
-  _testObject(tm3Js);
+  _testObject(new DateTime.now().millisecondsSinceEpoch > 100 ? tm3Js : {});
 }
 
 _jsCallback(TestMessage1 msg){
@@ -63,5 +63,9 @@ _testObject(Object o){
   print('[Dart] ("msg" -> Object) is TestMessage1Fake: ${o is TestMessage1Fake}');
   if (o is TestMessage1Fake) {
     print('[Dart] (("msg" -> Object) as TestMessage1Fake).fieldStr1: ${(o as TestMessage1Fake).fieldStr1}');
+  }
+  print('[Dart] ("msg" -> Object) is SubObjTestMessage1: ${o is SubObjTestMessage1}');
+  if (o is SubObjTestMessage1) {
+    print('[Dart] (("msg" -> Object) as SubObjTestMessage1).fieldInt2: ${(o as SubObjTestMessage1).fieldInt2}');
   }
 }
