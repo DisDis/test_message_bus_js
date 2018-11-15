@@ -33,11 +33,14 @@ void main() {
   setProperty(window,'dartObj2',tm2Js);
   print('MARKER7');
   _testObject(new DateTime.now().millisecondsSinceEpoch > 100 ? tm2Js : {});
-  print('MARKER8 - empty object');
+  print('MARKER8 - empty map');
   _testObject({});
   print('MARKER9 - parse json string -> tm3Js(SubObjTestMessage1)');
   SubObjTestMessage1 tm3Js = parse('{"fieldInt2":8,"fieldArr1Str":["3json","4json"]}');
   _testObject(new DateTime.now().millisecondsSinceEpoch > 100 ? tm3Js : {});
+  print('MARKER10 - empty object');
+  _testObject(new Object());
+  print('----------- END ------------');
 }
 
 _jsCallback(TestMessage1 msg){
