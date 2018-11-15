@@ -57,4 +57,8 @@ _testObject(Object o){
   if (o is TestMessage1) {
     print('[Dart] (("msg" -> Object) as TestMessage1).fieldStr1: ${(o as TestMessage1).fieldStr1}');
   }
+  print('[Dart] ("msg" -> Object) is TestMessage1Fake: ${o is TestMessage1Fake}');
+  if (o is TestMessage1Fake) {
+    print('[Dart] (("msg" -> Object) as TestMessage1Fake).fieldStr1: ${(o as TestMessage1Fake).fieldStr1}');
+  }
 }
