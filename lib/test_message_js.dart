@@ -13,18 +13,43 @@ external dynamic parse(String value);
 
 @JS()
 @anonymous
-class TestMessage1JS implements TestMessage1{
-  num fieldInt1;
-  String fieldStr1;
-  SubObjTestMessage1 subObjTestMessage1;
+abstract class TestMessage1JS implements TestMessage1{
+  external factory TestMessage1JS({
+    num fieldInt1,
+    String fieldStr1,
+  });
+
+  @override
+  external num get fieldInt1;
+  @override
+  external set fieldInt1(num value);
+
+  @override
+  external String get fieldStr1;
+  @override
+  external set fieldStr1(String value);
+
+  @override
+  external SubObjTestMessage1 get subObjTestMessage1;
+  @override
+  external set subObjTestMessage1(SubObjTestMessage1 value);
 }
 
 @JS()
 @anonymous
-class SubObjTestMessage1JS implements SubObjTestMessage1 {
-  @override
-  List<String> fieldArr1Str;
+abstract class SubObjTestMessage1JS implements SubObjTestMessage1 {
+  external factory SubObjTestMessage1JS({
+    List<String> fieldArr1Str,
+    num fieldInt2,
+  });
 
   @override
-  num fieldInt2;
+  external List<String> get fieldArr1Str;
+  @override
+  external set fieldArr1Str(List<String> value);
+
+  @override
+  external num get fieldInt2;
+  @override
+  external set fieldInt2(num value);
 }
