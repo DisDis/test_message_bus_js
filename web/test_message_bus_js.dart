@@ -26,7 +26,8 @@ void main() {
     ..text = stringify(tm1Js);
 
   print('MARKER4 - parse json string -> tm2Js');
-  TestMessage1 tm2Js = parse('{"fieldInt1":3,"fieldStr1":"json text","subObjTestMessage1":{"fieldInt2":4,"fieldArr1Str":["1json","2json"]}}');
+  TestMessage1 tm2Js =
+   (parse('{"fieldInt1":3,"fieldStr1":"json text","subObjTestMessage1":{"fieldInt2":4,"fieldArr1Str":["1json","2json"]}}') as TestMessage1JS);
   print('MARKER5 - call(tm2Js)');
   _jsCallback(tm2Js);
   print('MARKER6 - end call, set "dartObj2"');
@@ -36,7 +37,7 @@ void main() {
   print('MARKER8 - empty map');
   _testObject({});
   print('MARKER9 - parse json string -> tm3Js(SubObjTestMessage1)');
-  SubObjTestMessage1 tm3Js = parse('{"fieldInt2":8,"fieldArr1Str":["3json","4json"]}');
+  SubObjTestMessage1 tm3Js = (parse('{"fieldInt2":8,"fieldArr1Str":["3json","4json"]}') as SubObjTestMessage1JS);
   _testObject(new DateTime.now().millisecondsSinceEpoch > 100 ? tm3Js : {});
   print('MARKER10 - empty object');
   _testObject(new Object());
